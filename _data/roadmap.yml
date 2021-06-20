@@ -1,0 +1,122 @@
+milestone: 1
+step: 4
+
+milestones:
+  - title: An Experimental Crochet
+    release: 2021
+    goal: >
+      The first experimental release of Crochet aims to
+      put its design to test, with some usable tooling.
+
+      Though this release doesn't aim to provide good support
+      for any specific domain, there will be varying degrees of
+      support for interactive fiction, software testing, and
+      language tooling.
+    steps:
+      - A fully-functioning Crochet VM
+      - A REPL
+      - Testing support
+      - A reasonable collection of basic packages
+      - A tool for managing Crochet projects
+      - Basic editor support (VSCode, Emacs, Vi)
+      - Usable documentation
+  
+  - title: Crochet for Interactive Fiction
+    release: 2022
+    goal: >
+      The initial design goal for Crochet was to build a tool
+      for interactive fiction. It's still the main goal and the
+      aim of the first stable release.
+
+      At this point I'm less interested in proving security
+      properties and more interested in exploring ways in which
+      the tool can feel nice to use for this goal.
+    steps:
+      - A GUI tool for managing Crochet projects
+      - Novella, an HTML-based UI for interactive fiction
+      - The Novella DSL
+      - Trace-based debugging
+      - An IDE with live feedback for Novella
+      - Text and internationalisation
+  
+  - title: Crochet for Language Tools
+    release: 2023
+    goal: >
+      This step will have Crochet acquire some better support for writing
+      language tools. The reason this comes very early is because I envision
+      a Crochet ecosystem mostly made up of DSLs, and in order for this to
+      work writing and using DSLs must be a very low-effort activity
+      (and deliver consistent experience!).
+
+      The aim here overlaps a lot with language workbench tools. We want
+      things like syntax highlighting, structual editing, REPLs, and etc.
+      to be automatically derived from language definitions and be consistent
+      across all different DSLs.
+    steps:
+      - A parser generator for Crochet (PEG with left-recursion)
+      - Support for common formats (JSON, YAML, ...)
+      - Composable schemas
+      - Generic tree-based selection & transformation
+      - Support for incremental models
+      - Support for binary data
+      - Proper pretty-printing
+      - A safe imperative dialect for native extensions
+      - A safe dialect for command line interfaces
+      - A safe dialect for binary data codecs
+      - A rich REPL
+    
+  - title: Crochet for Automation
+    release: TBA
+    goal: >
+      This step will improve Crochet's support for automating tasks.
+      This is actually important before Crochet can be used for software
+      verification, as models will be verified out-of-process.
+    steps:
+      - "\"safe\" shell execution"
+      - Sandboxed and non-sandboxed file systems
+      - Safe HTTP and websocket clients
+      - Proper temporal support
+      - Proper internationalisation support
+      - OS introspection
+      - Generic I/O
+
+  - title: Crochet for Software Verification
+    release: TBA
+    goal: >
+      This step will improve Crochet's usage for software verification,
+      which also happens to be an important part of writing AI-heavy
+      interactive fiction (you want to explore different play throughs
+      of the game and ensure that players won't get stuck---continuation
+      issues are, of course, out of scope).
+    steps:
+      - Proper support for property-based testing
+      - Support for bounded exhaustive testing
+
+  - title: Crochet for UI
+    release: TBA
+    goal: >
+      This step will improve Crochet's usage for building more flexible
+      kinds of user interfaces. This is important in order to move more
+      tools to be written in Crochet, and allow a Crochet IDE to be truly
+      safe in the presence of arbitrary extensions.
+    steps:
+      - Active views
+      - Declarative UI DSL with dynamic effects
+      - HTML, Native, and terminal renderers
+      - Constraint-based layouting
+      - Electron support
+      - Structural editors
+      - A full Crochet IDE with safe user extensions
+      
+  - title: Crochet for 2d Games
+    release: TBA
+    goal: >
+      This step will aim to allow Crochet to be used for more general 2d
+      games that want a safe and flexible approach to both writing the
+      game itself or integrating dialogue/AI.
+    steps:
+      - Rust-based VM
+      - Proper specification for Core
+      - Optimisation efforts
+      - Wrapper over PIXI
+      - Integrations with common game engines

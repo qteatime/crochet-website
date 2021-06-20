@@ -1,2 +1,3 @@
-# crochet-website
-The website and documentation for Crochet
+# Crochet website
+
+The website for Crochet.

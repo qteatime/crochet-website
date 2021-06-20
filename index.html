@@ -1,0 +1,41 @@
+---
+title: Home
+layout: base
+group: home
+permalink: /
+---
+
+<section class="rl-front-page">
+  <div class="rl-front-page-head">{% include navigation.html %}</div>
+
+  <div class="rl-front-page-body">
+    <div class="container">
+      <div class="rl-main-top">
+        <h1 class="rl-main-title title">Crochet</h1>
+        <div class="rl-main-description">
+          A tool for creating and remixing interactive experiences, safely.
+        </div>
+        {% include roadmap-status.html %}
+      </div>
+
+      <div class="rl-timeline-container">
+        <ul class="rl-timeline">
+          {% for post in site.posts reversed %}
+          <li class="rl-timeline-point">
+            <div class="rl-timeline-date">
+              {{ post.date | date_to_long_string }} &bullet; {{ post.content |
+              number_of_words }} words
+            </div>
+            <a href="{{ post.url }}">
+              <strong class="rl-timeline-title">{{ post.title }}</strong>
+              <span class="rl-timeline-excerpt">{{ post.snip }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}
