@@ -1,0 +1,37 @@
+milestone: 2
+step: 1
+
+milestones:
+  - title: An Experimental Crochet
+    release: 2021
+    goal: >
+      The first experimental release of Crochet aims to
+      put its design to test, with some usable tooling.
+
+      Though this release doesn't aim to provide good support
+      for any specific domain, there will be varying degrees of
+      support for interactive fiction, software testing, and
+      language tooling.
+    steps:
+      - A fully-functioning Crochet VM
+      - A REPL
+      - Testing support
+      - A reasonable collection of basic packages
+      - A tool for managing Crochet projects
+      - Basic editor support (VSCode)
+      - Usable documentation
+
+  - title: A Stable Crochet
+    release: 2024
+    goal: >
+      With the core design of Crochet validated, the next step
+      is putting together a stable implementation of the language
+      that can be used for production use cases.
+
+      No security proofs will happen here, but they should happen
+      later.
+    steps:
+      - An AOT Crochet compiler with JS and WASM as backends
+      - An optimised Crochet runtime
+      - Stabilising the collection of basic packages
+      - Basic package management
