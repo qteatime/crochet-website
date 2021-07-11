@@ -1395,3 +1395,31 @@
   font-weight: bold;
   line-height: 1.4em;
 }
+
+.rl-main-top {
+  display: flex;
+}
+
+.rl-main-sticker {
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0 2em;
+}
+
+.rl-main-description {
+  text-align: left;
+  flex-grow: 1;
+  padding: 0 2em;
+}
+
+.rl-main-description-highlight {
+  font-family: "Lora", serif;
+  font-size: 1.4em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  color: #424242;
+}
+
+.rl-main-description p {
+  margin-bottom: 1.5em;
+}
