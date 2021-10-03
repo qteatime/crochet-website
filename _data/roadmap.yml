@@ -17,9 +17,9 @@ milestones:
       - A REPL
       - Testing support
       - A reasonable collection of basic packages
+      - Usable documentation
       - A tool for managing Crochet projects
       - Basic editor support (VSCode, Emacs, Vi)
-      - Usable documentation
   
   - title: Crochet for Interactive Fiction
     release: 2022
