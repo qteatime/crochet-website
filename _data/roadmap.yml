@@ -1,5 +1,5 @@
 milestone: 1
-step: 5
+step: 6
 
 milestones:
   - title: An Experimental Crochet
@@ -17,8 +17,8 @@ milestones:
       - A REPL
       - Testing support
       - A reasonable collection of basic packages
-      - Usable documentation
       - A tool for managing Crochet projects
+      - Usable documentation
       - Basic editor support (VSCode, Emacs, Vi)
   
   - title: Crochet for Interactive Fiction
