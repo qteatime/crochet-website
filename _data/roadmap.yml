@@ -1,5 +1,5 @@
 milestone: 1
-step: 6
+step: 7
 
 milestones:
   - title: An Experimental Crochet
@@ -18,8 +18,8 @@ milestones:
       - Testing support
       - A reasonable collection of basic packages
       - A tool for managing Crochet projects
+      - Basic editor support (VSCode)
       - Usable documentation
-      - Basic editor support (VSCode, Emacs, Vi)
   
   - title: Crochet for Interactive Fiction
     release: 2022
