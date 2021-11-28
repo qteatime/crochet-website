@@ -10,6 +10,10 @@ navigation:
     url: /roadmap/
     group: roadmap
 
+  - text: Documentation
+    url: /docs/
+    group: external
+
   - text: Source Code
     url: https://github.com/qteatime/crochet
     group: external
