@@ -1,0 +1,664 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Contributing code" href="pull-request.html" /><link rel="prev" title="Reporting security issues" href="security-report.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+        <title>Requesting features - Crochet 0.14 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=82a976d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/crochet.css?v=4e295929" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Crochet 0.14 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Crochet 0.14 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reference/system/index.html">The Crochet System</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of The Crochet System</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/system/whats-crochet.html">What’s Crochet?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/system/installing-crochet.html">Installing Crochet</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/system/structure/index.html">How is Crochet structured?</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of How is Crochet structured?</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/structure/introduction.html">The Crochet universe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/structure/package-configuration.html">Package configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/system/types/index.html">Data and types</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Data and types</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/types/types-and-data.html">Types and data modelling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/types/hierarchies.html">Hierarchies of types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/types/traits.html">Traits</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/system/commands/index.html">Commands</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Commands</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/commands/declaration.html">What are commands?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/commands/signatures.html">Signatures and their uses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/commands/dispatch.html">Executing commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/commands/why.html">Why are commands …?</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/system/computing/index.html">Computing with Crochet</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Computing with Crochet</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/computing/execution-models.html">Execution models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/computing/bindings.html">Naming values</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../reference/system/computing/intrinsics/index.html">Intrinsic data types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Intrinsic data types</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/system/computing/intrinsics/gradual.html">Gradual representations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/system/computing/intrinsics/numbers.html">Numeric models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/system/computing/intrinsics/text.html">Textual models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/system/computing/intrinsics/logic.html">Logical models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/system/computing/intrinsics/functions.html">Program representations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/system/computing/intrinsics/collections.html">Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/computing/application.html">Applying programs and commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/computing/using.html">Using data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/computing/equality.html">Equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/computing/branching.html">Branching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/computing/comprehension.html">Working with multiple values</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/system/effects/index.html">Effects</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Effects</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/effects/what-are-effects.html">What are effects?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/effects/handlers.html">Effect handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/effects/contexts.html">Contextual handlers</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/system/verification/index.html">Verification</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Verification</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/verification/examples.html">Example-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/verification/contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/system/ffi/index.html">Foreign interfaces</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Foreign interfaces</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/ffi/interface.html">Writing external functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/ffi/ffi.html">The FFI type</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/system/security/index.html">Security and capabilities</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Security and capabilities</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/security/why.html">Why use capabilities?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/security/groups.html">Capabilities and groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system/security/dynamic.html">Dynamic capabilities</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/system/design-philosophy.html">Annex A: Design philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/system/sociology-and-linguistics.html">Annex B: Sociology and linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/api/index.html">Crochet’s API Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/brief-syntax/index.html">The Brief Syntax Cheatsheet</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of The Brief Syntax Cheatsheet</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/brief-syntax/declaration/index.html">Declarations</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Declarations</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/capability.html"><code class="docutils literal notranslate"><span class="pre">capability</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/command.html"><code class="docutils literal notranslate"><span class="pre">command</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/define.html"><code class="docutils literal notranslate"><span class="pre">define</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/effect.html"><code class="docutils literal notranslate"><span class="pre">effect</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/handler.html"><code class="docutils literal notranslate"><span class="pre">handler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/implement.html"><code class="docutils literal notranslate"><span class="pre">implement</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/local.html"><code class="docutils literal notranslate"><span class="pre">local</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/open.html"><code class="docutils literal notranslate"><span class="pre">open</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/prelude.html"><code class="docutils literal notranslate"><span class="pre">prelude</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/protect.html"><code class="docutils literal notranslate"><span class="pre">protect</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/test.html"><code class="docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/trait.html"><code class="docutils literal notranslate"><span class="pre">trait</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/brief-syntax/declaration/type.html"><code class="docutils literal notranslate"><span class="pre">type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/brief-syntax/expression/index.html">Expressions</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Expressions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cookbook/brief-syntax/expression/statement/index.html">Statements</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Statements</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/statement/assert.html"><code class="docutils literal notranslate"><span class="pre">assert</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/statement/let.html"><code class="docutils literal notranslate"><span class="pre">let</span></code> expression</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/index.html">Complex expressions</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of Complex expressions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/apply.html">Program application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/condition.html"><code class="docutils literal notranslate"><span class="pre">condition</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/continue-with.html"><code class="docutils literal notranslate"><span class="pre">continue</span> <span class="pre">with</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/delayed.html">Delayed programs (Lambdas)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/do.html"><code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">..</span> <span class="pre">end</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/for.html"><code class="docutils literal notranslate"><span class="pre">for</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/force.html"><code class="docutils literal notranslate"><span class="pre">force</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/foreign.html"><code class="docutils literal notranslate"><span class="pre">foreign</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/handle.html"><code class="docutils literal notranslate"><span class="pre">handle</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/hole.html">Holes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/invocation.html">Command invocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/perform.html"><code class="docutils literal notranslate"><span class="pre">perform</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/pipe.html">Pipe expressions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/projection.html">Projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/return.html"><code class="docutils literal notranslate"><span class="pre">return</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/self-expr.html"><code class="docutils literal notranslate"><span class="pre">self</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/static-type.html">Static types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/complex/variable.html">Variable references</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/index.html">Atomic expressions</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of Atomic expressions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/boolean.html">Boolean literals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/float.html">Floating point literals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/global.html">Global references</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/integer.html">Integer literals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/interpolate.html">Interpolation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/lazy.html"><code class="docutils literal notranslate"><span class="pre">lazy</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/list.html">List expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/new.html"><code class="docutils literal notranslate"><span class="pre">new</span></code> expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/nothing.html">Nothing literal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/record.html">Record expressions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/brief-syntax/expression/atomic/text.html">Text literals</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Contributing to Crochet</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of Contributing to Crochet</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bug-report.html">Reporting issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-report.html">Reporting security issues</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Requesting features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pull-request.html">Contributing code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="requesting-features">
+<h1>Requesting features<a class="headerlink" href="#requesting-features" title="Link to this heading">#</a></h1>
+<p>You’re disappointed that Crochet doesn’t do that thing you want it to.
+You think that it would be great if it did. You think it would be great
+for more users if it did. And so you want to tell us all about your idea.
+That’s great and very welcome, but we do have a process for this. The
+process isn’t here to add bureaucracy to everything—it’s here to
+ensure the feature is aligned with Crochet’s vision, and that it won’t
+cause unintended harm to other users.</p>
+<p>This page describes this process.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading">#</a></h2>
+<p>Crochet feature requests are made in the
+<a class="reference external" href="https://github.com/qteatime/crochet/issues">main repository’s issue tracker</a>,
+on GitHub. In order to send one you’ll first need to have a GitHub account.
+You can <a class="reference external" href="https://github.com/">create a GitHub account</a> for free if you don’t
+have one yet.</p>
+<p>You should <strong>make sure that the feature you’re requesting aligns with</strong>
+<a class="reference internal" href="../reference/system/design-philosophy.html"><span class="doc">Crochet’s design philosophy</span></a>.
+Some ideas might sound really cool—and may be perfect for other projects!—but
+Crochet has certain design principles that guide its features, so there’s
+a chance your idea might be a poor fit.</p>
+<p>You should <strong>be willing to spend a considerable amount of time refining your
+proposal and working on identifying the risks and harms</strong> it may have from
+different points of view, as well as how to mitigate them. Requesting a
+feature <strong>is</strong> a significant investment of time from everyone involved,
+not just the people who will be implementing the feature. Making sure that
+the design makes sense and is socially reasonable (i.e.: it won’t cause
+unintended harm when considering different social groups, cultures, and
+threat models) is often where a lot of work the work lays.</p>
+<p>Your request doesn’t need to be perfect on the first try (it’s very unlikely
+that any request would), but you will be spending time refining it, answering
+several questions, and doing your own research on certain issues. Think of it
+as a full project that you’re undertaking.</p>
+<p>And even when you do all of the work, there is still a chance that your
+request may be rejected, if the maintainers consider that the risk is too
+high for its benefits.</p>
+</section>
+<section id="things-that-are-nice-to-do">
+<h2>Things that are nice to do<a class="headerlink" href="#things-that-are-nice-to-do" title="Link to this heading">#</a></h2>
+<p>Before requesting a feature, consider searching in the issue tracker to see
+if someone has had the same idea before. If you do find something that
+looks like your idea, try commenting in that ticket with the things going
+through your mind instead.</p>
+<p>If you’re not sure if what you’re thinking of really matches what other
+people are, send your feature request <em>anyway</em>. It’s better to potentially cause
+some noise than to let these remain unknown. We can always redirect you
+to another ticket if that makes sense.</p>
+</section>
+<section id="how-to-request-a-feature">
+<h2>How to request a feature<a class="headerlink" href="#how-to-request-a-feature" title="Link to this heading">#</a></h2>
+<p>A feature request is a collaborative conversation to get an idea you have
+to fit in the Crochet’s design philosophy. The important things in this
+conversation are explaining what you expect the feature to achieve, and
+why it’s great for Crochet to be able to do that. The <strong>required</strong> parts
+of this conversation are making sure any potential harms for the feature
+are properly mitigated—adding new things is always risky, but Crochet
+has a process to manage these risks.</p>
+<p>Here’s an example of a feature request that is helpful:</p>
+<blockquote>
+<div><p>Whenever I’m writing Crochet code, there are cases where I want to
+understand better what’s happening to the program. But the debugging
+library currently only supports writing a piece of text to the
+transcript.</p>
+<p>This means that, when I’m working on some model, I need to give my
+types some kind of command to turn them into a textual representation
+to look at them:</p>
+<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> point2d<span class="p">(</span><span class="k">global</span> x <span class="k">is</span> integer<span class="p">,</span> <span class="k">global</span> y <span class="k">is</span> integer<span class="p">);</span>
+
+<span class="k">command</span> point2d to-text <span class="p">=</span>
+  <span class="dl">&quot;</span><span class="s2">point2d(</span><span class="si">[</span><span class="k">self</span> x to-text<span class="si">]</span><span class="s2">, </span><span class="si">[</span><span class="k">self</span> y to-text<span class="si">]</span><span class="s2">)</span><span class="dl">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is not that bad when I’m dealing with one or two types. I can
+live with the additional work. But when I’m dealing with, say, a
+hundred of types—especially when they come from something like a
+parsing grammar—, that becomes just too much.</p>
+<p>And there’s the issue that complex nesting of these types requires
+a lot of work to convert them to text, and often don’t look readable.
+You also can’t inspect them interactively once you turn them into
+text, which is a related problem.</p>
+<p>What I would like to be able to do is to just describe the type and
+get this representation for free. So if I have:</p>
+<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> point2d<span class="p">(</span><span class="k">global</span> x <span class="k">is</span> integer<span class="p">,</span> <span class="k">global</span> y <span class="k">is</span> integer<span class="p">);</span>
+</pre></div>
+</div>
+<p>I should be able to do:</p>
+<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span>transcript <span class="nf">inspect:</span> <span class="p">[</span><span class="k">new</span> point2d<span class="p">(</span><span class="mf">10</span><span class="p">,</span> <span class="mf">20</span><span class="p">),</span> <span class="k">new</span> point2d<span class="p">(</span><span class="mf">20</span><span class="p">,</span> <span class="mf">30</span><span class="p">)];</span>
+</pre></div>
+</div>
+<p>And get a readable (possibly interactive) representation on my
+transcript, with the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> fields available, not just the
+name of the type.</p>
+</div></blockquote>
+<p>It doesn’t address all of the requirements, but it is a good conversation
+starter. It includes a clear explanation of what frustrates the user, what
+they would like to be able to do, and why they think this would be important.
+Emotions and feelings are important in features, and this report has a fair
+amount of it—while still keeping the dialogue respectful. Always remember
+to keep things respectful.</p>
+<p>This also goes for insulting other programming languages or technologies.
+Avoid doing that in your feature requests. It <em>is</em> against the code
+of conduct, and may result in a friendly warning.</p>
+<p>Anyway! The maintainer may look at this initial request and reply:</p>
+<blockquote>
+<div><p>Hey, thanks for the report. I whole-heartedly agree! The current
+way that the debugging library works, requiring text to be sent
+to the transcript, is not great. It causes a lot of friction to
+understand what’s happening with your types.</p>
+<p>And the problem with the lack of interactive visualisations for
+the textual representation that you mentioned is really spot on.
+Once you go to a text form you just lose so much to be able to
+do more useful things with the transcript. Ideally we would like
+the transcript to work fully on structured data (we’re not there yet
+as you can see).</p>
+<p>Now, as a bit of background. The reason we went with transcript
+only accepting text was that there is no way of expressing more
+granular intentions about when fields should and shouldn’t be
+visible, and to whom. So the only reasonable thing to do, even
+when using <code class="docutils literal notranslate"><span class="pre">transcript</span> <span class="pre">inspect:</span> <span class="pre">_</span></code> was to not disclose anything.</p>
+<p>But now that <code class="docutils literal notranslate"><span class="pre">global</span></code> annotations have been added, we could probably
+have that mean the same as “public”—they effectively are anyway. And
+we could show those fields by default.</p>
+<p>The other problem is that I don’t think this really <em>solves</em> the whole
+issue. We could just show the (public) internal structure of a value
+in the transcript (that’s what a lot of Reflection-heavy languages do
+anyway), but many types simply make no immediate sense from their
+internal structure alone (e.g.: consider timestamps), and some types
+are just wrapping boxed values which Crochet can’t really disclose
+(e.g.: <code class="docutils literal notranslate"><span class="pre">crochet.time/instant</span></code>).</p>
+<p>I think we’d need to come up with a way of providing default
+structured visualisations in the transcript which can be overriden
+by user code to provide something that makes more sense to expose.
+And I guess there you run into the other social problem: “what makes
+more sense to expose” is highly context-dependent. So values would
+need to expose multiple “views” somehow.</p>
+<p>How would one even select them, though? That sounds like a long (and
+maybe separate) UX discussion…</p>
+</div></blockquote>
+<p>Maybe the person who requested the feature is a bit overwhelmed at this point.
+Maybe they had not considered all of the implications of the feature. But that’s
+how things are—if you keep asking questions you’ll keep uncovering more things.
+Be that as it may, the person replies:</p>
+<blockquote>
+<div><p>Oh! I hadn’t considered types that really do need a bit of visualisation
+magic to make sense in the transcript. I haven’t really run into many of
+them so far, so I can’t say that has been weighing on my mind lol</p>
+<p>Maybe we should limit the feature a bit then? First try just making
+the transcript aware of public fields. Figuring out this “views” business
+seems like a lot more of work otherwise, and I’m not sure I’m up to that…</p>
+</div></blockquote>
+<p>The maintainer replies:</p>
+<blockquote>
+<div><p>Sounds good to me! Let’s try to keep it limited to making the transcript
+aware of public fields then. I think it works great with using the
+<code class="docutils literal notranslate"><span class="pre">global</span></code> modifier as an indication of the user’s intent of disclosing
+that value—they’re effectively public anyway.</p>
+<p>There are a few problems here though. First is that the VM doesn’t really
+track the <code class="docutils literal notranslate"><span class="pre">global</span></code> modifier currently, it just uses it to generate the
+command for accessing that field. We would need to modify the VM to keep
+track of it—but you could argue we should’ve done that from the
+start, ahaha.</p>
+<p>I guess otherwise the idea is that public fields would be recursively
+disclosed, whereas private ones would remain represented in the current
+“secret data” mode? That might actually work without any significant
+changes to code that <em>depends</em> on transcript. You can listen to
+transcript events, but if we just change the display semantics in
+the transcript writer itself then we don’t have to worry about code
+that is listening to transcript events and doing their own thing.</p>
+<p>I’ll start a design document for this. Let’s move the discussion there :)</p>
+</div></blockquote>
+<p>The maintainer then opens a pull-request targeting the issue with the
+following document:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># [#0032] - Disclose public fields in transcript
+
+| **Authors** | Niini, Max |
+| **Last updated** | 3rd January 2022 |
+| **Status** | Draft |
+
+## Summary
+
+Currently the transcript treats all fields in a type as secret data.
+This means that if you have the following type declaration:
+
+    type point2d(global x is integer, global y is integer);
+
+And you try to write to the transcript as follows:
+
+    transcript inspect: new point2d(10, 20);
+
+You&#39;ll get the following (unhelpful) output:
+
+    [inspect] (point2d from test-project) [
+      x -&gt; (***),
+      y -&gt; (***)
+    ]
+
+Since we&#39;ve introduced the `global` modifier on fields, we can use
+it as an intention of disclosing the field whenever we show somewhere.
+So in this case we&#39;d expect the transcript to include:
+
+    [inspect] (point2d from test-project) [
+      x -&gt; 10,
+      y -&gt; 20
+    ]
+
+
+## Semantics
+
+TODO
+
+
+## Risks
+
+
+### Leaking secrets
+
+The primary reason fields are considered secret is due to concerns with
+data privacy. Transcript events can be listened to by arbitrary code, and
+transcript outputs can be redirected anywhere (e.g.: to files or other
+disk storage). We want to make sure we don&#39;t accidentally disclose any
+secret information.
+
+This is mitigated by restricting the output of this information to
+fields marked as `global`, which are effectively public in any case.
+
+
+### Poor UX
+
+This proposal is only concerned with allowing `global`-marked fields to
+be represented as public data in the transcript, but any data will be
+shown as-is. And this is not always what one wants.
+
+For example, if there&#39;s a timestamp, we might want to show it as the
+human-readable instant in time it refers to in some calendar. We might
+even want to show it in different ways depending on some context. As
+a result, this proposal does not solve all of the problems uncovered
+by the summary of this document, and they&#39;ll need to be handled in a
+follow-up proposal.
+
+Still, this does improve the current experience slightly for some common
+types, particularly the ones generated from e.g.: Lingua grammars.
+</pre></div>
+</div>
+<p>The maintainer and the feature requester then continue their discussion by
+moving this document forward, talking about the precise semantics and
+implementation plans, highlighting more social problems (e.g.: how do users
+migrate to this feature once it’s released? Does it break any existing code?
+Can they be provided with automated upgrade tools to mitigate this breakage?),
+etc.</p>
+<p>A proposal is considered finished once an implementation for it is merged,
+tested, released, and <strong>reaches a stable release</strong>. The last part is important
+because features may still evolve (and have their design document changed)
+while in their experimental phase. There may always be use cases that were
+not considered, or issues that were not foreseen.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="pull-request.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Contributing code</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="security-report.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Reporting security issues</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021, Niini
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Requesting features</a><ul>
+<li><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li><a class="reference internal" href="#things-that-are-nice-to-do">Things that are nice to do</a></li>
+<li><a class="reference internal" href="#how-to-request-a-feature">How to request a feature</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=506589e9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>

@@ -1,0 +1,3 @@
+[submodule "crochet-docs"]
+	path = _docs
+	url = https://github.com/qteatime/crochet-docs.git
