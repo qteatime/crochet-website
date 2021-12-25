@@ -45,10 +45,6 @@
   background: none;
 }
 
-.rl-front-page-body {
-  padding: 3rem 0;
-}
-
 #content-wrapper {
   max-width: 750px;
   margin: 0 auto;
@@ -99,7 +95,8 @@
 
 #footer {
   padding: 3em 0em;
-  background: #f3f3f3;
+  background: #635656;
+  color: #fafafa;
   text-align: center;
   letter-spacing: 0.1em;
 }
@@ -1422,4 +1419,98 @@
 
 .rl-main-description p {
   margin-bottom: 1.5em;
+}
+
+.rl-front-page-body {
+  background: #fafafa;
+}
+
+.rl-front-page-body .container {
+  max-width: unset;
+  width: unset;
+  background: url("/media/files/crochet-header.png") no-repeat -75px top;
+  background-color: #fafafa;
+  height: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 1280px) {
+  .rl-front-page-body .container {
+    background-position-x: -270px;
+  }
+}
+
+@media screen and (min-width: 1472px) {
+  .rl-front-page-body .container {
+    max-width: 1344px;
+    width: 1344px;
+    background-position-x: -75px;
+  }
+}
+
+@media screen and (max-width: 1088px) {
+  .rl-front-page-body .container {
+    background-position-x: center;
+    background-position-y: 100px;
+    height: auto;
+  }
+
+  .rl-front-page-body .rl-main-top {
+    max-width: unset;
+  }
+
+  .rl-front-page-body .rl-main-description-highlight {
+    margin-bottom: 590px;
+    text-align: center;
+  }
+}
+
+.rl-main-top {
+  max-width: 550px;
+  position: relative;
+}
+
+.rl-front-page-install {
+  background: #ececea;
+  padding: 1em 0 2em 0;
+}
+
+.rl-fpi-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.rl-fpi-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.rl-fpi-shell {
+  border: 1px dashed #5f5f5f;
+  background: #837a7a;
+  padding: 1em;
+  margin: 1em 3em 0.5em 3em;
+  border-radius: 2px;
+}
+
+.rl-fpi-shell code {
+  color: #fafafa;
+  font-family: "Source Sans Pro", monospace;
+  font-size: 20px;
+  background: unset;
+}
+
+.rl-fpi-meta {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  justify-content: center;
+}
+
+.rl-fpi-meta .rl-fpi-meta-entry:not(:last-child) {
+  padding-right: 2em;
+  border-right: 1px solid #5f5f5f;
 }

@@ -11,21 +11,80 @@ permalink: /
   <div class="rl-front-page-body">
     <div class="container">
       <div class="rl-main-top">
-        <div class="rl-main-sticker">
-          <img src="media/files/crochet.png" alt="">
-        </div>
-
         <div class="rl-main-description">
           <p class="rl-main-description-highlight">
             Crochet is a tool for creating and remixing interactive stories, safely.
           </p>
 
           <p>
-            Crochet goes to great lengths to make creating, running and remixing content
-            as safe and privacy respecting as possible. Content built with
-            Crochet can only use your computer and your data in ways you explicitly
-            consent to---it can't change your files or send your information over the
-            internet without your knowledge and consent.
+            Create, run, and remix content
+            worrying less about your privacy and security. Content built with
+            Crochet can only use your computer and data in ways you 
+            know and consent to.
+          </p>
+
+          <p>
+            Crochet is free to use, open-source, and anything you create with Crochet can
+            be used for commercial purposes.
+          </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rl-front-page-install">
+      <div class="rl-fpi-container">
+        <div class="rl-fpi-title">Install it with <a href="https://nodejs.org/en/">npm</a></div>
+        <div class="rl-fpi-shell">
+          <code>
+            $ npm install @origamitower/crochet@experimental
+          </code>
+        </div>
+        <div class="rl-fpi-meta">
+          <div class="rl-fpi-meta-entry">v0.13.0</div>
+          <div class="rl-fpi-meta-entry"><a href="https://crochet.qteati.me/docs/">Documentation</a></div>
+          <div class="rl-fpi-meta-entry"><a href="https://crochet.qteati.me/roadmap/">Roadmap</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}
+
+
+<!--
+
+<div class="rl-front-page-body" style="
+    background: #fafafa;
+">
+    <div class="container" style="
+    background: url(&quot;/media/files/crochet-header.png&quot;) no-repeat -75px top;
+    background-color: #fafafa;
+    height: 600px;
+    /* width: 100%; */
+    /* max-width: unset; */
+    position: relative;
+    /* left: -100px; */
+    display: flex;
+    flex-direction: row-reverse;
+">
+      <div class="rl-main-top" style="
+    max-width: 550px;
+    position: relative;
+    /* top: -20px; */
+">
+        <div class="rl-main-description">
+          <p class="rl-main-description-highlight">
+            Crochet is a tool for creating and remixing interactive stories, safely.
+          </p>
+
+          <p>
+            Create, run, and remix content
+            worrying less about your privacy and security. Content built with
+            Crochet can only use your computer and data in ways you 
+            know and consent to.
           </p>
 
           <p>
@@ -37,24 +96,7 @@ permalink: /
         </div>
       </div>
 
-      <div class="rl-timeline-container">
-        <ul class="rl-timeline">
-          {% for post in site.posts reversed %}
-          <li class="rl-timeline-point">
-            <div class="rl-timeline-date">
-              {{ post.date | date_to_long_string }} &bullet; {{ post.content |
-              number_of_words }} words
-            </div>
-            <a href="{{ post.url }}">
-              <strong class="rl-timeline-title">{{ post.title }}</strong>
-              <span class="rl-timeline-excerpt">{{ post.snip }}</span>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
+      
     </div>
-  </div>
-</section>
 
-{% include footer.html %}
+-->
