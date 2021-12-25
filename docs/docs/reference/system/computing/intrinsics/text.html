@@ -175,6 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../sociology-and-linguistics.html">Annex B: Sociology and linguistics</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">Crochet’s API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../cookbook/brief-syntax/index.html">The Brief Syntax Cheatsheet</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label for="toctree-checkbox-11"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../../cookbook/brief-syntax/declaration/index.html">Declarations</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label for="toctree-checkbox-12"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../cookbook/brief-syntax/declaration/capability.html"><code class="docutils literal notranslate"><span class="pre">capability</span></code></a></li>
@@ -236,6 +237,14 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../contributing/index.html">Contributing to Crochet</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label for="toctree-checkbox-17"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing/code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing/bug-report.html">Reporting issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing/security-report.html">Reporting security issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing/feature-request.html">Requesting features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing/pull-request.html">Contributing code</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
 </ul>
 
@@ -293,6 +302,17 @@ don’t need to be escaped:</p>
 <div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="dl">&lt;&lt;</span><span class="s2">They exchanged some glances. "Are you not eating...?" Awra asked.</span><span class="dl">&gt;&gt;</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Currently, when writing multi-line text literals, Crochet will remove
+any leading white-space up to the <em>column</em> of the opening quotation mark.
+This is, however, a very confusing behaviour if you’re not looking at
+the source code in a plain text editor with monospaced font, so it will
+be removed in the next version of the language.</p>
+<p>You don’t have to worry about the change in semantics because Crochet
+modules are versioned (by the language heading at the top), and the
+compiler can just migrate your source code automatically.</p>
+</div>
 <div class="section" id="unicode-escapes">
 <h3>Unicode escapes<a class="headerlink" href="#unicode-escapes" title="Permalink to this headline">¶</a></h3>
 <p>Crochet allows characters to be written using their explicit unicode escape
@@ -308,97 +328,6 @@ are equivalent:</p>
 </div>
 <p>There are certain situations in Crochet where characters must be written
 in their unicode escape form.</p>
-</div>
-<div class="section" id="handling-of-white-space">
-<h3>Handling of white-space<a class="headerlink" href="#handling-of-white-space" title="Permalink to this headline">¶</a></h3>
-<p>Any leading or trailing white-space character in a line in a text literal
-is ignored by Crochet. That is, the following literals are equivalent:</p>
-<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="dl">&lt;&lt;</span><span class="s2">    Hello!    </span><span class="dl">&gt;&gt;</span>
-
-<span class="dl">&lt;&lt;</span><span class="s2">Hello!</span><span class="dl">&gt;&gt;</span>
-</pre></div>
-</div>
-<p>As are the following:</p>
-<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="dl">&lt;&lt;</span><span class="s2">First line</span>
-<span class="s2">      and second line</span>
-<span class="s2">    and third line       </span><span class="dl">&gt;&gt;</span>
-
-<span class="dl">&lt;&lt;</span><span class="s2">First line</span>
-<span class="s2">and second line</span>
-<span class="s2">and third line</span><span class="dl">&gt;&gt;</span>
-</pre></div>
-</div>
-<p>White-space that is not leading or trailing in a line is collapsed. That is,
-multiple space characters are treated as if there was a single space character.
-Thus, the following are equivalent:</p>
-<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="dl">&lt;&lt;</span><span class="s2">This   has    many     spaces,    but   Crochet    doesn't    care</span><span class="dl">&gt;&gt;</span>
-
-<span class="dl">&lt;&lt;</span><span class="s2">This has many spaces, but Crochet doesn't care</span><span class="dl">&gt;&gt;</span>
-</pre></div>
-</div>
-<p>All white-space characters are normalised, which means that tabs (unicode
-<code class="docutils literal notranslate"><span class="pre">\u0009</span></code>) becomes a single ASCII space (unicode <code class="docutils literal notranslate"><span class="pre">\u0020</span></code>).</p>
-<p>White-space that must be preserved in the literal needs to appear as
-its unicode escape code in the source code, but tools are free to provide
-friendlier presentations and editing interfaces. For example:</p>
-<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="dl">&lt;&lt;</span><span class="s2">One\u0009Two\u0009Three</span><span class="dl">&gt;&gt;</span>
-</pre></div>
-</div>
-<p>Is how one would express the words “one”, “two”, and “three” separated by
-tabs.</p>
-</div>
-<div class="section" id="handling-of-invisible-characters">
-<h3>Handling of invisible characters<a class="headerlink" href="#handling-of-invisible-characters" title="Permalink to this headline">¶</a></h3>
-<p>Unicode supports invisible and control characters—characters that don’t
-really have any glyph representation, but change how the text is interpreted
-by the program presenting it on the screen.</p>
-<p>Crochet requires all invisible and control characters to appear as explicit
-unicode escape sequences in the source code, but tools are free to provide
-friendlier presentations and editing interfaces.</p>
-</div>
-<div class="section" id="unicode-normalisation">
-<h3>Unicode normalisation<a class="headerlink" href="#unicode-normalisation" title="Permalink to this headline">¶</a></h3>
-<p>Unicode allows text that can be presented in the same way on screen to be
-written in very different forms. For example:</p>
-<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="dl">&lt;&lt;</span><span class="s2">cafe\u0301</span><span class="dl">&gt;&gt;</span>
-</pre></div>
-</div>
-<p>Is presented in the screen in the same way as:</p>
-<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="dl">&lt;&lt;</span><span class="s2">café</span><span class="dl">&gt;&gt;</span>
-</pre></div>
-</div>
-<p>But in the source code, these are different pieces of text—they’re composed
-of different characters. In Crochet, any text written in a literal is
-converted to its canonical composed form. That means that in both of these
-cases, Crochet will <em>act</em> as if the source code contained the second form,
-where the <code class="docutils literal notranslate"><span class="pre">é</span></code> character is a single character.</p>
-<p>Because Crochet uses the canonical form—where it’s assumed that the meaning
-of both representations will not change—there are some cases where one may
-consider the meaning to be the same, but Crochet cannot make that inference.</p>
-<p>For example, the following pieces of text could be considered to mean the
-same thing in Japanese:</p>
-<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span><span class="dl">&lt;&lt;</span><span class="s2">ネコ</span><span class="dl">&gt;&gt;</span>
-
-<span class="dl">&lt;&lt;</span><span class="s2">ﾈｺ</span><span class="dl">&gt;&gt;</span>
-
-<span class="dl">&lt;&lt;</span><span class="s2">ねこ</span><span class="dl">&gt;&gt;</span>
-
-<span class="dl">&lt;&lt;</span><span class="s2">猫</span><span class="dl">&gt;&gt;</span>
-</pre></div>
-</div>
-<p>All of these pieces of text <em>can</em> be read as “neko” (cat), but the choice
-of spelling and the way they compose with surrounding pieces of text might
-be relevant to their <em>meaning</em>, therefore Crochet does not do any
-normalisation for these cases automatically.</p>
-</div>
-<div class="section" id="raw-text">
-<h3>Raw text<a class="headerlink" href="#raw-text" title="Permalink to this headline">¶</a></h3>
-<p>A special kind of text literal is the “raw” literal. Within this form,
-Crochet does not do any normalisation or special handling of white space.
-Raw literals are preceded by the letter <code class="docutils literal notranslate"><span class="pre">r</span></code>:</p>
-<div class="highlight-crochet notranslate"><div class="highlight"><pre><span></span>r<span class="dl">"</span><span class="s2">These   spaces   will   be    preserved!   </span><span class="dl">"</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="text-composition">
@@ -603,10 +532,6 @@ one of these interpreters.</p>
 <li><a class="reference internal" href="#">Textual models</a><ul>
 <li><a class="reference internal" href="#text-literals">Text literals</a><ul>
 <li><a class="reference internal" href="#unicode-escapes">Unicode escapes</a></li>
-<li><a class="reference internal" href="#handling-of-white-space">Handling of white-space</a></li>
-<li><a class="reference internal" href="#handling-of-invisible-characters">Handling of invisible characters</a></li>
-<li><a class="reference internal" href="#unicode-normalisation">Unicode normalisation</a></li>
-<li><a class="reference internal" href="#raw-text">Raw text</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#text-composition">Text composition</a><ul>
