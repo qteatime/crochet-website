@@ -1,5 +1,5 @@
-milestone: 1
-step: 7
+milestone: 2
+step: 1
 
 milestones:
   - title: An Experimental Crochet
@@ -20,7 +20,7 @@ milestones:
       - A tool for managing Crochet projects
       - Basic editor support (VSCode)
       - Usable documentation
-  
+
   - title: Crochet for Interactive Fiction
     release: 2022
     goal: >
@@ -38,7 +38,7 @@ milestones:
       - Trace-based debugging
       - An IDE with live feedback for Novella
       - Text and internationalisation
-  
+
   - title: Crochet for Language Tools
     release: 2023
     goal: >
@@ -64,7 +64,7 @@ milestones:
       - A safe dialect for command line interfaces
       - A safe dialect for binary data codecs
       - A rich REPL
-    
+
   - title: Crochet for Automation
     release: TBA
     goal: >
@@ -72,7 +72,7 @@ milestones:
       This is actually important before Crochet can be used for software
       verification, as models will be verified out-of-process.
     steps:
-      - "\"safe\" shell execution"
+      - '"safe" shell execution'
       - Sandboxed and non-sandboxed file systems
       - Safe HTTP and websocket clients
       - Proper temporal support
@@ -107,7 +107,7 @@ milestones:
       - Electron support
       - Structural editors
       - A full Crochet IDE with safe user extensions
-      
+
   - title: Crochet for 2d Games
     release: TBA
     goal: >
