@@ -41,7 +41,7 @@ jobs:
           make build
           touch _site/docs/.nojekyll
           cp CNAME _site/docs/CNAME
-          mv _site/docs new-docs
+          mv _site new-docs
           git checkout gh-pages
           rm -rf docs
           mv new-docs docs
