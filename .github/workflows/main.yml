@@ -28,6 +28,7 @@ jobs:
           python-version: '3.x'
 
       - run: |
+          bundle install
           make build
           touch _site/docs/.nojekyll
           cp CNAME _site/docs/CNAME
