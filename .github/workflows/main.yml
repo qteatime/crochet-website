@@ -39,8 +39,8 @@ jobs:
           
       - run: |
           make build
-          touch _site/docs/.nojekyll
-          cp CNAME _site/docs/CNAME
+          touch _site/.nojekyll
+          cp CNAME _site/CNAME
           mv _site new-docs
           git checkout gh-pages
           rm -rf docs
