@@ -29,7 +29,10 @@ jobs:
 
       - run: |
           bundle install
-          
+
+      - run: |
+          pip install -U sphinx
+
       - run: |
           git submodule init
           
