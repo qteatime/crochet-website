@@ -29,7 +29,11 @@ jobs:
 
       - run: |
           bundle install
+          
+      - run: |
           git submodule init
+          
+      - run: |
           make build
           touch _site/docs/.nojekyll
           cp CNAME _site/docs/CNAME
