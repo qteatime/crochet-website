@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Roadmap - Crochet</title>
+    <meta name="viewport" content="width=device-width" />
+
+    <meta name="description" content="The Crochet programming language" />
+    <meta name="keywords" content="programming language" />
+
+    <meta property="og:type" content="summary_large_image">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Roadmap">
+    <meta property="og:image" content="/media/files/crochet.png">
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic|PT+Sans+Caption:700,400|Source+Sans+Pro:400|Raleway:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/media/css/bulma.min.css" />
+    <link rel="stylesheet" href="/media/css/site.css" />
+  </head>
+  <body>
+    <nav class="navbar rl-navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <h1 class="rl-brand"><a href="/">Crochet</a></h1>
+      <span class="navbar-burger burger" data-target="#main-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+    <div id="main-navigation" class="navbar-menu">
+      <!-- prettier-ignore -->
+      <div class="navbar-end">
+         
+           
+          
+
+          <a class="navbar-item is-active" href="/roadmap/">Roadmap</a>
+          
+            <span class="navbar-separator">/</span>
+          
+         
+           
+          
+
+          <a class="navbar-item " href="/docs/">Documentation</a>
+          
+            <span class="navbar-separator">/</span>
+          
+         
+           
+          
+
+          <a class="navbar-item " href="https://github.com/qteatime/crochet">Source Code</a>
+          
+            <span class="navbar-separator">/</span>
+          
+         
+           
+          
+
+          <a class="navbar-item " href="https://twitter.com/qteatime">Twitter</a>
+          
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<div id="wrapper">
+  <div id="content">
+    <article id="main-article" class="rl-article">
+  <div class="rl-article-content rl-content">
+    <h1 class="rl-article-title" id="roadmap">Roadmap</h1>
+
+<p>Crochet is still under active development. An experimental implementation is
+planned to be released in 2021.</p>
+
+<div class="rl-roadmap-status">
+  <a href="/roadmap" class="rl-roadmap-title">Next: Crochet for Interactive Fiction</a>
+  <div class="rl-roadmap-timeline-container">
+    <div class="rl-roadmap-milestone-start"></div>
+    <ul class="rl-roadmap-milestone-timeline">
+      
+        
+          <li class="rl-roadmap-step rl-roadmap-step-current"><span>A GUI tool for managing Crochet projects</span></li>
+        
+      
+        
+          <li class="rl-roadmap-step rl-roadmap-step-future"></li>
+        
+      
+        
+          <li class="rl-roadmap-step rl-roadmap-step-future"></li>
+        
+      
+        
+          <li class="rl-roadmap-step rl-roadmap-step-future"></li>
+        
+      
+        
+          <li class="rl-roadmap-step rl-roadmap-step-future"></li>
+        
+      
+        
+          <li class="rl-roadmap-step rl-roadmap-step-future"></li>
+        
+      
+    </ul>
+    <div class="rl-roadmap-milestone-end">2022</div>
+  </div>
+</div>
+
+<h2 id="milestones">Milestones</h2>
+
+<h3><strike>An Experimental Crochet</strike></h3>
+
+<table class="common-table rl-skip-small">
+  <tbody>
+    <tr>
+      <td><strong>Expected release:</strong></td>
+      <td>2021</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The first experimental release of Crochet aims to put its design to test, with some usable tooling.
+Though this release doesn’t aim to provide good support for any specific domain, there will be varying degrees of support for interactive fiction, software testing, and language tooling.</p>
+
+<ul>
+  
+    
+      <li><strike>A fully-functioning Crochet VM</strike></li>
+    
+  
+    
+      <li><strike>A REPL</strike></li>
+    
+  
+    
+      <li><strike>Testing support</strike></li>
+    
+  
+    
+      <li><strike>A reasonable collection of basic packages</strike></li>
+    
+  
+    
+      <li><strike>A tool for managing Crochet projects</strike></li>
+    
+  
+    
+      <li><strike>Basic editor support (VSCode)</strike></li>
+    
+  
+    
+      <li><strike>Usable documentation</strike></li>
+    
+  
+</ul>
+
+<h3>Crochet for Interactive Fiction</h3>
+
+<table class="common-table rl-skip-small">
+  <tbody>
+    <tr>
+      <td><strong>Expected release:</strong></td>
+      <td>2022</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The initial design goal for Crochet was to build a tool for interactive fiction. It’s still the main goal and the aim of the first stable release.
+At this point I’m less interested in proving security properties and more interested in exploring ways in which the tool can feel nice to use for this goal.</p>
+
+<ul>
+  
+    
+      <li><strong>A GUI tool for managing Crochet projects</strong></li>
+    
+  
+    
+      <li>Novella, an HTML-based UI for interactive fiction</li>
+    
+  
+    
+      <li>The Novella DSL</li>
+    
+  
+    
+      <li>Trace-based debugging</li>
+    
+  
+    
+      <li>An IDE with live feedback for Novella</li>
+    
+  
+    
+      <li>Text and internationalisation</li>
+    
+  
+</ul>
+
+<h3>Crochet for Language Tools</h3>
+
+<table class="common-table rl-skip-small">
+  <tbody>
+    <tr>
+      <td><strong>Expected release:</strong></td>
+      <td>2023</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This step will have Crochet acquire some better support for writing language tools. The reason this comes very early is because I envision a Crochet ecosystem mostly made up of DSLs, and in order for this to work writing and using DSLs must be a very low-effort activity (and deliver consistent experience!).
+The aim here overlaps a lot with language workbench tools. We want things like syntax highlighting, structual editing, REPLs, and etc. to be automatically derived from language definitions and be consistent across all different DSLs.</p>
+
+<ul>
+  
+    
+      <li>A parser generator for Crochet (PEG with left-recursion)</li>
+    
+  
+    
+      <li>Support for common formats (JSON, YAML, ...)</li>
+    
+  
+    
+      <li>Composable schemas</li>
+    
+  
+    
+      <li>Generic tree-based selection &amp; transformation</li>
+    
+  
+    
+      <li>Support for incremental models</li>
+    
+  
+    
+      <li>Support for binary data</li>
+    
+  
+    
+      <li>Proper pretty-printing</li>
+    
+  
+    
+      <li>A safe imperative dialect for native extensions</li>
+    
+  
+    
+      <li>A safe dialect for command line interfaces</li>
+    
+  
+    
+      <li>A safe dialect for binary data codecs</li>
+    
+  
+    
+      <li>A rich REPL</li>
+    
+  
+</ul>
+
+<h3>Crochet for Automation</h3>
+
+<table class="common-table rl-skip-small">
+  <tbody>
+    <tr>
+      <td><strong>Expected release:</strong></td>
+      <td>TBA</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This step will improve Crochet’s support for automating tasks. This is actually important before Crochet can be used for software verification, as models will be verified out-of-process.</p>
+
+<ul>
+  
+    
+      <li>"safe" shell execution</li>
+    
+  
+    
+      <li>Sandboxed and non-sandboxed file systems</li>
+    
+  
+    
+      <li>Safe HTTP and websocket clients</li>
+    
+  
+    
+      <li>Proper temporal support</li>
+    
+  
+    
+      <li>Proper internationalisation support</li>
+    
+  
+    
+      <li>OS introspection</li>
+    
+  
+    
+      <li>Generic I/O</li>
+    
+  
+</ul>
+
+<h3>Crochet for Software Verification</h3>
+
+<table class="common-table rl-skip-small">
+  <tbody>
+    <tr>
+      <td><strong>Expected release:</strong></td>
+      <td>TBA</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This step will improve Crochet’s usage for software verification, which also happens to be an important part of writing AI-heavy interactive fiction (you want to explore different play throughs of the game and ensure that players won’t get stuck—continuation issues are, of course, out of scope).</p>
+
+<ul>
+  
+    
+      <li>Proper support for property-based testing</li>
+    
+  
+    
+      <li>Support for bounded exhaustive testing</li>
+    
+  
+</ul>
+
+<h3>Crochet for UI</h3>
+
+<table class="common-table rl-skip-small">
+  <tbody>
+    <tr>
+      <td><strong>Expected release:</strong></td>
+      <td>TBA</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This step will improve Crochet’s usage for building more flexible kinds of user interfaces. This is important in order to move more tools to be written in Crochet, and allow a Crochet IDE to be truly safe in the presence of arbitrary extensions.</p>
+
+<ul>
+  
+    
+      <li>Active views</li>
+    
+  
+    
+      <li>Declarative UI DSL with dynamic effects</li>
+    
+  
+    
+      <li>HTML, Native, and terminal renderers</li>
+    
+  
+    
+      <li>Constraint-based layouting</li>
+    
+  
+    
+      <li>Electron support</li>
+    
+  
+    
+      <li>Structural editors</li>
+    
+  
+    
+      <li>A full Crochet IDE with safe user extensions</li>
+    
+  
+</ul>
+
+<h3>Crochet for 2d Games</h3>
+
+<table class="common-table rl-skip-small">
+  <tbody>
+    <tr>
+      <td><strong>Expected release:</strong></td>
+      <td>TBA</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This step will aim to allow Crochet to be used for more general 2d games that want a safe and flexible approach to both writing the game itself or integrating dialogue/AI.</p>
+
+<ul>
+  
+    
+      <li>Rust-based VM</li>
+    
+  
+    
+      <li>Proper specification for Core</li>
+    
+  
+    
+      <li>Optimisation efforts</li>
+    
+  
+    
+      <li>Wrapper over PIXI</li>
+    
+  
+    
+      <li>Integrations with common game engines</li>
+    
+  
+</ul>
+
+
+  </div>
+</article>
+  </div>
+</div>
+
+<div id="footer">
+  <div id="meta-info">
+    Made with
+    <span class="icon is-medium heart"
+      ><i class="far fa-heart" title="love" aria-hidden="true"></i>
+      <span class="sr">love</span>
+    </span>
+    by Q.
+  </div>
+</div>
+
+    <script src="/media/js/site.js"></script>
+  </body>
+</html>
