@@ -20,7 +20,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.99.0
         with:
-          ruby-version: 'latest'
+          ruby-version: '3.3.5'
 
       - name: Setup Python
         uses: actions/setup-python@v2.3.2
