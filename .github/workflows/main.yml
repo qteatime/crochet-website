@@ -12,24 +12,36 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    strategy:
-      matrix:
-        node-version: [15.x]
-
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.99.0
         with:
-          node-version: ${{ matrix.node-version }}
+          ruby-version: '2.7.5'
+
+      - name: Setup Python
+        uses: actions/setup-python@v2.3.2
+        with:
+          python-version: '3.x'
+
+      - run: |
+          bundle install
+
+      - run: |
+          pip install -U sphinx
+          pip install -U furo
+
+      - run: |
+          git submodule init
+          
       - run: |
           make build
-          touch _site/docs/.nojekyll
-          cp CNAME _site/docs/CNAME
-          mv _site/docs new-docs
+          touch _site/.nojekyll
+          cp CNAME _site/CNAME
+          mv _site new-docs
           git checkout gh-pages
           rm -rf docs
           mv new-docs docs
